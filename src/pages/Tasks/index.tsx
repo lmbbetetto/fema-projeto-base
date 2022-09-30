@@ -1,37 +1,77 @@
-import { Wrapper, Header, TaskContainer, Information } from "./styles"
-import femaLogo from "../../assets/fema-logo.png"
-import { PlusCircle } from "phosphor-react"
+import {
+  Header,
+  TasksContainer,
+  Wrapper,
+  Information,
+  TasksList,
+  Task,
+  EmptyContainer,
+} from "./styles";
 
-export function Tasks(){
-    return(
-        <TaskContainer>
-            <Header>
-                <img src={femaLogo} alt="Logo Fema" />
-                <h1>To
-                    <strong>Do</strong>
-                    List
-                </h1>
-            </Header>
+import femaLogo from "../../assets/fema-logo.png";
+import { PlusCircle, Circle, Trash, ClipboardText } from "phosphor-react";
 
-            <Wrapper>
-                <form>
-                    <input type="text" placeholder="Adicione uma nova tarefa" />
+export function Tasks() {
+  return (
+    <TasksContainer>
+      <Header>
+        <img src={femaLogo} />
+        <h1>
+          To
+          <strong>Do</strong>
+          List
+        </h1>
+      </Header>
 
-                    <button type="submit">Criar<PlusCircle /></button>
-                </form>
-                <Information>
-                    <input type="text" />
-                    <div>
-                        <strong>
-                            Tarefas criadas <span className="created">0</span>
-                        </strong>
-                        <strong>
-                            Tarefas concluídas <span>0</span>
-                            </strong>
-                    </div>
-                </Information>
-            </Wrapper>
+      <Wrapper>
+        <form>
+          <input type="text" placeholder="Adicione uma nova tarefa" />
 
-        </TaskContainer>
-    )
+          <button type="submit">
+            Criar <PlusCircle />
+          </button>
+        </form>
+
+        <Information>
+          <input type="text" placeholder="Pesquise por uma tarefa" />
+
+          <div>
+            <strong>
+              Tarefas Criadas <span className="created">0</span>
+            </strong>
+            <strong>
+              Tarefas Concluídas <span>0</span>
+            </strong>
+          </div>
+        </Information>
+
+        {/* <TasksList>
+          <Task>
+            <button type="button">
+              <Circle />
+            </button>
+            <p>
+              Integer urna interdum massa libero auctor neque turpis turpis
+              semper. Duis vel sed fames integer.
+            </p>
+            <button type="button">
+              <Trash />
+            </button>
+          </Task>
+
+          <Task>Teste</Task>
+          <Task>Teste</Task>
+        </TasksList> */}
+
+        <EmptyContainer>
+          <ClipboardText size={56} />
+
+          <p>
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            Crie tarefas e organize seis itens a fazer
+          </p>
+        </EmptyContainer>
+      </Wrapper>
+    </TasksContainer>
+  );
 }
