@@ -12,6 +12,7 @@ import femaLogo from "../../assets/fema-logo.png";
 import { PlusCircle, Circle, Trash, ClipboardText } from "phosphor-react";
 
 export function Tasks() {
+  const tasks = ["Teste 1", "Projeto 2", "Levar o cachorro para passear"]
   return (
     <TasksContainer>
       <Header>
@@ -45,11 +46,13 @@ export function Tasks() {
           </div>
         </Information>
 
-        {/* <TasksList>
-          <Task>
-            <button type="button">
-              <Circle />
-            </button>
+        {tasks.length > 0 ? (
+          <TasksList>
+            {tasks.map((task) => (
+              <Task>
+              <button type="button">
+                <Circle />
+              </button>
             <p>
               Integer urna interdum massa libero auctor neque turpis turpis
               semper. Duis vel sed fames integer.
@@ -59,9 +62,12 @@ export function Tasks() {
             </button>
           </Task>
 
+            ))}
+
           <Task>Teste</Task>
           <Task>Teste</Task>
-        </TasksList> */}
+          </TasksList>
+        )}
 
         <EmptyContainer>
           <ClipboardText size={56} />
